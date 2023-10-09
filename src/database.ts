@@ -1,5 +1,5 @@
-import { Client, ClientConfig } from 'pg';
 import 'dotenv/config';
+import { Client, ClientConfig } from 'pg';
 
 const databaseConfig = (): ClientConfig => {
   if (process.env.NODE_ENV === 'test') {
@@ -19,6 +19,7 @@ const databaseConfig = (): ClientConfig => {
     port: Number(process.env.DB_PORT!),
   };
 };
+
 const client: Client = new Client(databaseConfig());
 
 const startDatabase = async () => {
