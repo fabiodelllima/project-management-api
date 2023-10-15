@@ -8,4 +8,8 @@ export type TDeveloper = {
 
 export type TCreateDeveloper = Omit<TDeveloper, 'id'>;
 
-export type TQueryResult = QueryResult<TDeveloper>;
+export type TDeveloperResult = QueryResult<TDeveloper>;
+
+export type TDeveloperRead = TDeveloper[];
+
+export type TDeveloperUpdate = Partial<TDeveloper>;
