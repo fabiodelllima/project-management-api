@@ -1,18 +1,17 @@
 import { Router } from 'express';
+import { verifyProjectId } from '../middlewares/verifyProjectId.middleware';
+import { verifyProjectBodyId } from '../middlewares/verifyProjectBodyId.middleware copy';
 import {
   createProjectController,
   readProjectController,
   updateProjectController,
 } from '../controllers/projects.controller';
-import { verifyDeveloperId } from '../middlewares/verifyDeveloperId.middleware';
-import { verifyProjectId } from '../middlewares/verifyProjectId.middleware';
 
 export const projectsRoutes: Router = Router();
 
 projectsRoutes.post(
   '/',
-  // verifyDeveloperId,
-  // verifyProjectId,
+  verifyProjectBodyId,
   createProjectController
 );
 
@@ -24,7 +23,7 @@ projectsRoutes.get(
 
 projectsRoutes.patch(
   '/:id',
-  // verifyProjectId,
-  verifyDeveloperId,
+  verifyProjectBodyId,
+  verifyProjectId,
   updateProjectController
 );
