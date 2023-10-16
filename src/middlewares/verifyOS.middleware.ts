@@ -1,6 +1,4 @@
 import { NextFunction, Request, Response } from 'express';
-import { client } from '../database';
-import { TDeveloperResult } from '../interfaces/developers.interface';
 import AppError from '../errors/App.error';
 
 export const verifyOS = async (

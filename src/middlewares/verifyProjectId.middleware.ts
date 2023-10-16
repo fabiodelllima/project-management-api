@@ -19,7 +19,7 @@ export const verifyProjectId = async (
   );
 
   if (!queryResult.rowCount) {
-    throw new AppError('Project not found.', 409);
+    throw new AppError('Project not found.', 404);
   }
 
   const foundProject: TProject = queryResult.rows[0];
