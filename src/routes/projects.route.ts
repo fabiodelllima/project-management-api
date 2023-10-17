@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import { verifyProjectId } from '../middlewares/verifyProjectId.middleware';
-import { verifyProjectBodyId } from '../middlewares/verifyProjectBodyId.middleware copy';
+import { verifyProjectBodyId } from '../middlewares/verifyProjectBodyId.middleware';
 import {
   createProjectController,
   readProjectController,
