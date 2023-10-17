@@ -11,12 +11,6 @@ export const createProjectService = async (
   data: TCreateProject,
   developerId: number
 ): Promise<TProject> => {
-  console.log('\n100:');
-  console.table(data);
-
-  console.log('\n200:');
-  console.table(developerId);
-
   const startDate = new Date();
   const endDate = new Date();
 
@@ -26,9 +20,6 @@ export const createProjectService = async (
     startDate,
     endDate,
   };
-
-  console.log('\n300:');
-  console.table(newDeveloperInfo);
 
   const queryFormat: string = format(
     `

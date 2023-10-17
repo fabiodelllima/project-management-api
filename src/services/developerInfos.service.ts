@@ -10,11 +10,6 @@ export const createDeveloperInfosService = async (
   data: TCreateDeveloperInfos,
   developerId: number
 ): Promise<TDeveloperInfos> => {
-  console.table(data);
-
-  console.log('\n200:');
-  console.table(developerId);
-
   const developerSince = new Date();
 
   const newDeveloperInfo = {
@@ -22,9 +17,6 @@ export const createDeveloperInfosService = async (
     developerId,
     developerSince,
   };
-
-  console.log('\n300:');
-  console.table(newDeveloperInfo);
 
   const queryFormat: string = format(
     `
@@ -36,15 +28,9 @@ export const createDeveloperInfosService = async (
     Object.values(newDeveloperInfo)
   );
 
-  console.log('\n400:');
-  console.table(newDeveloperInfo);
-
   const queryResult: TDeveloperInfosResult = await client.query(
     queryFormat
   );
-
-  console.log('\n500:');
-  console.table(newDeveloperInfo);
 
   return queryResult.rows[0];
 };
