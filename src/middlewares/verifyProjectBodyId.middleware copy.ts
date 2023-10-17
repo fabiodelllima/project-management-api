@@ -11,11 +11,11 @@ export const verifyProjectBodyId = async (
   res: Response,
   next: NextFunction
 ): Promise<void> => {
-  const { id } = req.body;
+  const { developerId } = req.body;
 
   const queryResult: TDeveloperResult = await client.query(
     `SELECT id FROM "developers" WHERE "id" = $1`,
-    [id]
+    [developerId]
   );
 
   if (!queryResult.rowCount) {
