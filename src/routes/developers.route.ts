@@ -27,8 +27,8 @@ developersRoutes.get(
 
 developersRoutes.patch(
   '/:id',
-  verifyEmail,
   verifyDeveloperId,
+  verifyEmail,
   updateDeveloperController
 );
 
@@ -40,8 +40,8 @@ developersRoutes.delete(
 
 developersRoutes.post(
   '/:id/infos',
+  verifyDeveloperId,
   verifyOS,
   verifyDeveloperInfo,
-  verifyDeveloperId,
   createDeveloperInfosController
 );
