@@ -1,4 +1,4 @@
-# **Controle de projetos - KenzieVelopers**
+# **Controle de projetos**
 
 ## **Introdução**
 
