@@ -1,45 +1,8 @@
-# **Controle de projetos - KenzieVelopers**
+# **Controle de Projetos**
 
-## **Introdução**
+API RESTful para gerenciar desenvolvedores e projetos. 
 
-Uma startup de tecnologia e desenvolvimento web decidiu criar uma API Rest para gerenciar seus desenvolvedores e projetos. Como você é um dos novos integrantes da equipe, você foi o escolhido para desenvolver essa aplicação.
-
-Através dessa API deve ser possível realizar o registro do desenvolvedor, associar informações extras ao mesmo e registrar os projetos de cada desenvolvedor.
-
-A seguir estarão todas as regras de negócio definidas pela startup para esse projeto. Lembre-se de seguir à risca todas as regras impostas.
-
-Vamos lá?!
-
-#
-
-## **Regras da entrega**
-
-A entrega deve seguir as seguintes regras:
-
-- O código deve estar em TypeScript, caso não esteja a **entrega será zerada**;
-- Deverá ser utilizado um banco de dados **_postgres_** para a elaboração da API;
-- O nome da tabela, das colunas e demais especificações, devem ser seguidas **à risca**. Caso tenha divergência, **será descontado nota**;
-- **Tenha muita atenção sobre o nome das chaves nos objetos de entrada e saída de cada requisição**;
-- **Na raiz do diretório** deve-se conter uma pasta nomeada **sql**, com dois arquivos:
-
-  - **createTables.sql**: contendo as queries de criação e inserção das tabelas;
-  - **diagram.png/jpg**: um arquivo **_.png_** ou **_.jpg_** contendo o diagrama da tabela;
-    - caso o arquivo **_createTables.sql_** não exista, **a entrega será zerada**.
-
-**Essa entrega possui testes automatizados**;
-
-- É necessário executar um **npm install** assim que fizer o clone do repositório para que as depedências dos testes sejam instaladas.
-- É necessário criar um banco de dados separado para a execução dos testes.
-  - Faça a criação do banco de testes e coloque os dados de conexão dele nas variáveis de ambiente que contém o indicador **_TEST_** no nome, assim sua aplicação vai saber em qual banco deve se conectar no momento de executar os testes, evitando inconsistência nos dados.
-- Para que os testes possam ser executados, existe um script de limpeza do banco que utiliza as queries do arquivo **createTables.sql** para ser executado, por isso é importante seguir as orientações sobre subdiretório sql e seus arquivos à risca.
-
-  - Caso o subdiretório sql e o arquivo createTables.sql não estejam com os nomes corretos ou no caminho correto os testes falharão, pois não será possível encontrar as queries a serem executadas;
-  - Caso o nome de alguma tabela, tipo ou coluna não esteja de acordo com o esperado, os testes também falharão.
-
-- A organização dos demais arquivos e pastas deve seguir o que foi visto previamente.
-- Todos os pacotes necessários para desenvolver a aplicação devem ser instalados, já que apenas os pacotes de teste foram incluídos no repositório.
-
-#
+<br>
 
 ## **Tabelas do banco de dados**
 
@@ -75,7 +38,7 @@ A entrega deve seguir as seguintes regras:
   - **endDate**: data.
   - **developerId**: inteiro e chave estrangeira.
 
-#
+<br>
 
 ## **Relacionamentos**
 
@@ -89,11 +52,11 @@ A entrega deve seguir as seguintes regras:
 - Um desenvolvedor pode ter muitos projetos, porém, um projeto pode pertencer a apenas um desenvolvedor.
 - Caso um **_developer_** seja deletado, a coluna **_developerId_** do projeto associado deve ser automaticamente alterada para **NULL**.
 
-#
+<br>
 
-## **Rotas - /developers**
+## **Rota /developers**
 
-## Endpoints
+### Endpoints
 
 | Método | Endpoint              | Responsabilidade                                    |
 | ------ | --------------------- | --------------------------------------------------- |
@@ -103,7 +66,7 @@ A entrega deve seguir as seguintes regras:
 | DELETE | /developers/:id       | Remover um desenvolvedor                            |
 | POST   | /developers/:id/infos | Cadastrar informações adicionais a um desenvolvedor |
 
-#
+<br>
 
 ## Regras da aplicação
 
@@ -162,8 +125,6 @@ A entrega deve seguir as seguintes regras:
     }
     ```
 
-#
-
 ### **GET /developers/:id**
 
 - Através do id de um desenvolvedor, deve retornar um objeto contendo dados das seguintes tabelas:
@@ -220,8 +181,6 @@ A entrega deve seguir as seguintes regras:
       "message": "Developer not found."
     }
     ```
-
-#
 
 ### **PATCH /developers/:id**
 
@@ -298,8 +257,6 @@ A entrega deve seguir as seguintes regras:
     }
     ```
 
-#
-
 ### **DELETE /developers/:id**
 
 - Deve ser possível deletar um developer informando apenas seu **_id_**;
@@ -338,8 +295,6 @@ A entrega deve seguir as seguintes regras:
     }
     ```
 
-#
-
 ### **POST /developers/:id/infos**
 
 - Deve ser possível inserir uma informação adicional a um developer informando seu **_id_**;
@@ -368,6 +323,7 @@ A entrega deve seguir as seguintes regras:
   - Caso o id informado não pertença a nenhum developer cadastrado
     - Retorno esperado: um objeto contendo a chave **_message_** com uma mensagem adequada;
     - Status esperado: _404 NOT FOUND_.
+  
 - **Exemplos de retornos**:
   | Dados de entrada: |
   | ----------------- |
@@ -434,17 +390,19 @@ A entrega deve seguir as seguintes regras:
     }
     ```
 
-#
+<br>
 
-## **Rota - /projects**
+## **Rota /projects**
 
-## Endpoints
+### Endpoints
 
 | Método | Endpoint      | Responsabilidade                                      |
 | ------ | ------------- | ----------------------------------------------------- |
 | POST   | /projects     | Cadastrar um novo projeto                             |
 | GET    | /projects/:id | Listar um projeto pelo id e os dados do desenvolvedor |
 | PATCH  | /projects/:id | Atualizar um projeto                                  |
+
+<br>
 
 ## Regras da aplicação
 
@@ -536,8 +494,6 @@ A entrega deve seguir as seguintes regras:
     }
     ```
 
-#
-
 ### **GET - /projects/:id**
 
 - Deve ser possível retornar os dados de um _project_ a partir do _id_ desse projeto;
@@ -590,8 +546,6 @@ A entrega deve seguir as seguintes regras:
       "message": "Project not found."
     }
     ```
-
-#
 
 ### **PATCH - /projects/:id**
 
